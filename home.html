@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashen Fernando | UI/UX Designer Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            --maincolor: #11999E;
+            --dark: #202020;
+            --light: #f8f9fa;
+            --gray: #30E3CA;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--maincolor);
+        }
+        
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(17, 153, 158, 0.666) 0%, #E4F9F5 100%);
+        }
+        
+        .profile-img {
+            width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--maincolor);
+        }
+        
+        .skill-card {
+            background: #E4F9F5;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--maincolor);
+            margin-bottom: 15px;
+        }
+        
+        .project-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: #000000b3;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+        
+        .filter-btn {
+            border: none;
+            background: none;
+            color: var(--gray);
+            font-weight: 600;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--maincolor);
+        }
+        
+        .contact-card {
+            background: #11999E;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+        }
+        
+        .btn-maincolor {
+            background-color: var(--maincolor);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--maincolor);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+                text-align: center;
+            }
+            
+            .profile-img {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Hashen Fernando</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#work">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Hi, Hashen Fernando</h1>
+                    <h3 class="mb-4 fw-semibold">UI/UX Designer creating digital experiences that matter,</h3>
+                    <p class="lead mb-4">Undergraduate @SLIIT | B.Sc.(Hons) Computer Science and Software Engineering - University of Bedfordshire | Creating intuitive digital experiences that users love.</p>
+                    <div class="d-flex gap-3">
+                        <a href="Hashen Fernando.pdf" download>
+                            <button class="btn btn-maincolor">
+                                <i class="fas fa-download me-2"></i>Download CV
+                            </button>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hashen-fernando-7197a0290/?trk=public-profile-join-page">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-user me-2"></i>About Me
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="IMG_5531 3.jpg" alt="Hashen Fernando, a professional UI/UX designer with short brown hair and glasses, smiling confidently in a casual blue shirt" class="profile-img img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Work Section -->
+    <section id="work" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <!-- <div class="text-center mb-5">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ui">UI Design</button>
+                <button class="filter-btn" data-filter="ux">UX Research</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+            </div> -->
+            
+            <div class="row" id="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4" data-category="ui">
+                    <div class="project-card">
+                        <img src="1.png" alt="Mobile banking app interface with modern neomorphic design elements and purple gradient accent color" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>One Eye Studio</h4>
+                            <p>Website for photography portfolio.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4" data-category="ux">
+                    <div class="project-card">
+                        <img src="8.png" alt="User research dashboard with personas, journey maps, and heatmaps showing touchpoints for e-commerce platform" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>LR Platinum Tyres</h4>
+                            <p>UI Design for Tyre shop</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4" data-category="web">
+                    <div class="project-card">
+                        <img src="9.png" alt="Responsive website design for tech startup with dark mode interface and animated illustrations" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>Nike App</h4>
+                            <p>Modern design for nike shoes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4" data-category="ui">
+                    <div class="project-card">
+                        <img src="5.png" alt="Fitness app interface showing workout tracking with vibrant orange color scheme and bold typography" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>Shoei product page</h4>
+                            <p>Modern product page</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4" data-category="ux">
+                    <div class="project-card">
+                        <img src="7.png" alt="Healthcare application wireframes showing user flows and information architecture diagrams" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>University website</h4>
+                            <p>Redesign university website</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4" data-category="web">
+                    <div class="project-card">
+                        <img src="4.png" alt="Minimalist portfolio website design with elegant typography and soft color palette" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>Library management system</h4>
+                            <p>UI design for library management system</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="col-md-6 col-lg-4" data-category="web">
+                    <div class="project-card">
+                        <img src="2.png" alt="Minimalist portfolio website design with elegant typography and soft color palette" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>Coffee shop app</h4>
+                            <p>Modern looking coffee shop app UI design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="col-md-6 col-lg-4" data-category="web">
+                    <div class="project-card">
+                        <img src="3.png" alt="Minimalist portfolio website design with elegant typography and soft color palette" class="project-img img-fluid">
+                        <div class="project-overlay">
+                            <h4>Car rental app</h4>
+                            <p>Modern looking car rental shop app UI design</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon text-center">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h4>UI Design</h4>
+                        <p>Creating visually stunning interfaces with attention to color theory, typography, and visual hierarchy.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon text-center">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>System Design</h4>
+                        <p>Building scalable design systems with reusable components and documentation to ensure consistency.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon text-center">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Crafting responsive layouts with HTML, CSS, and frameworks to ensure seamless user experiences across all devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h3 class="mb-4">Designing with purpose</h3>
+                    <p class="mb-4">I'm a passionate UI/UX designer and web developer with a strong foundation in creating user-centered digital experiences. Currently pursuing my degree in Computer Science and Software Engineering, I combine technical skills with creative design thinking to solve complex problems.</p>
+                    <p class="mb-4">My journey in design began with a deep curiosity about how users interact with digital products. I believe that great design is invisible it just works. Through my education at SLIIT and hands-on experience, I've developed expertise in user research, wireframing, prototyping, and front-end development.</p>
+                    <p>When I'm not designing or coding, you can find me creating content on YouTube, sharing my knowledge and experiences with the design community. I'm always eager to take on new challenges and collaborate on innovative projects.</p>
+                    <br>
+                    <h3 class="mb-4">Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item pb-4">
+                            <div class="d-flex justify-content-between">
+                                <h5>Freelance worker</h5>
+                                <span class="text-muted">2024 - Present</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center">
+                    <img src="iPhone 15.png" alt="" style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="contact-card">
+                        <h4 class="mb-4">Let's Work Together</h4>
+                        <p>Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.</p>
+                        <div class="contact-item d-flex my-4">
+                            <div class="icon me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>hashenfernando27@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex my-4">
+                            <div class="icon me-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+94 77 794 3816</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex my-4">
+                            <div class="icon me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Kalutara, Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace with your Access Key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <!-- Optional redirect after submission -->
+                        <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thanks.html"> -->
+
+                        <button type="submit" class="btn btn-maincolor">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <h3 class="mb-4">Hashen Fernando</h3>
+            <p class="mb-5">UI/UX Designer creating thoughtful digital experiences.</p>
+            <div class="social-links mb-4">
+                <a href="https://dribbble.com/hashen27" class="social-icon"><i class="fab fa-dribbble"></i></a>
+                <a href="https://www.behance.net/hashenfernando" class="social-icon"><i class="fab fa-behance"></i></a>
+                <a href="www.linkedin.com/in/hashen-fernando-7197a0290" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com/@gimma.27?si=qKcPt19CUbnjqfWl" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/hashen.27?igsh=MWptdGFndTh3eTZ1dw==&utm_source=ig_contact_invite" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="small mb-0">© 2025 Hashen Fernando. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+        
+        // Project filtering
+        // document.querySelectorAll('.filter-btn').forEach(btn => {
+        //     btn.addEventListener('click', function() {
+        //         // Update active button
+        //         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        //         this.classList.add('active');
+                
+        //         const filterValue = this.getAttribute('data-filter');
+        //         const projects = document.querySelectorAll('[data-category]');
+                
+        //         projects.forEach(project => {
+        //             if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+        //                 project.style.display = 'block';
+        //             } else {
+        //                 project.style.display = 'none';
+        //             }
+        //         });
+        //     });
+        // });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'white';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255,255,255,0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
